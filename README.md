@@ -51,7 +51,7 @@ Developed and Deployed using Visual Studio Code, Laragon, Heidi SQL, Github.
 ## Authors
 - [@Amir](https://github.com/amir1611)
 - [@Deee179](https://github.com/Deee179)
-- [@ainnajihah173](https://github.com/ainnajihah173))
+- [@ainnajihah173](https://github.com/ainnajihah173)
 - [@Shammene](https://github.com/Shammene)
 
 ## Documentation
