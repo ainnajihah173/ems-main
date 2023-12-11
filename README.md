@@ -53,7 +53,7 @@ Developed and Deployed using Visual Studio Code, Laragon, Heidi SQL, Github.
 - [@Chua](https://github.com/chua01)
 - [@Sufian](https://github.com/pianburp)
 - [@Alia](https://github.com/NikAlia910)
-- [@Sharmaine](https://github.com/Shammene)
+- [@Shammene](https://github.com/Shammene)
 
 ## Documentation
  - [Laravel](https://laravel.com/docs/10.x)
