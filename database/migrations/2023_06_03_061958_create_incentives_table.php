@@ -12,24 +12,28 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('incentives', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-            $table->String('applicant_name')->nullable();
-            $table->string('job')->nullable();
-            $table->string('job_type')->nullable();
-            $table->double('salary')->nullable();
-            $table->date('date')->nullable();
-            $table->string('status')->nullable();
-            $table->string('heir')->nullable();
-            $table->binary('docs')->nullable();
-        });
-    }
-
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
-    {
-        Schema::dropIfExists('incentives');
-    }
-};
+                $table->id();
+                $table->timestamps();
+                $table->date('date')->nullable();
+                $table->foreignId('ref_slot_id')->nullable();
+                $table->text('description')->nullable();
+                $table->string('document')->nullable();
+                $table->foreignId('ref_location_id')->nullable();
+                $table->foreignId('managed_by')->nullable();
+                $table->foreignId('sp_id')->nullable();
+                $table->foreignId('app_id')->nullable();
+                $table->foreignId('cons_id')->nullable();
+                $table->foreignId('ref_status_id')->default(1);
+            });
+        }
+    
+        /**
+         * Reverse the migrations.
+         */
+        public function down(): void
+        {
+            Schema::dropIfExists('incentive');
+        }
+    };
+    
+    

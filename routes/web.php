@@ -53,11 +53,16 @@ Route::prefix('staff')->name('staff.')->group(function () {
         Route::get('/consultant/create', [ConsultantController::class, 'create'])->name('consultant.create');
         Route::put('/consultant/store', [ConsultantController::class, 'store'])->name('consultant.store');
 
-        Route::get('/incentive/view', [IncentiveController::class, 'view'])->name('incentive.view');
-        Route::delete('/incentive/delete/{id}', [IncentiveController::class, 'delete'])->name('incentive.delete');
+        Route::get('/incentive/manage', [IncentiveController::class, 'manage'])->name('incentive.manage');
+        Route::match(['GET', 'PUT'], '/incentive/decline/{id}',  [IncentiveController::class, 'decline'])->name('incentive.decline');
+        Route::get('/incentive/show/{id}', [IncentiveController::class, 'show'])->name('incentive.show');
+        Route::put('/incentive/update/{id}', [IncentiveController::class, 'update'])->name('incentive.update');
+        Route::get('/incentive/{id}/edit', [IncentiveController::class, 'edit'])->name('incentive.edit');
+        //Route::get('/incentive/view', [IncentiveController::class, 'view'])->name('incentive.view');
+        //Route::delete('/incentive/delete/{id}', [IncentiveController::class, 'delete'])->name('incentive.delete');
         Route::get('/prepCourse/applicantList', [PrepCourseController::class, 'show'])->name('prepCourse.applicantList');
-        Route::get('/incentive/view', [IncentiveController::class, 'view'])->name('incentive.view');
-        Route::get('/incentive/delete/{id}', [IncentiveController::class, 'delete'])->name('incentive.delete');
+        //Route::get('/incentive/view', [IncentiveController::class, 'view'])->name('incentive.view');
+        //Route::get('/incentive/delete/{id}', [IncentiveController::class, 'delete'])->name('incentive.delete');
         //Route::delete('/incentive/delete/{id}, methods={"DELETE", "GET"}', [IncentiveController::class, 'delete'])->name('incentive.delete');
         Route::get('/register/manage', [ApplicationController::class, 'manReg'])->name('register.manage');
         Route::get('/card/manage', [MarriageCardController::class, 'manage'])->name('card.manage');
@@ -72,8 +77,6 @@ Route::group(['middleware' => ['auth', 'verified', 'user-role:staff']], function
 
 
 Route::prefix('user')->name('user.')->group(function () {
-
-
     Route::group(['middleware' => ['auth', 'verified', 'user-role:user']], function () {
         Route::get('/profile', [HomeController::class, 'indexUser'])->name('home');
         Route::post('/profile', [HomeController::class, 'updatePassword'])->name('update-password-user');
@@ -97,10 +100,14 @@ Route::prefix('user')->name('user.')->group(function () {
         Route::get('/prepCourse/create/{id}', [PrepCourseController::class, 'create'])->name('prepCourse.create');
         Route::put('/prepCourse/store', [PrepCourseController::class, 'store'])->name('prepCourse.store');
 
-        Route::get('/incentive/manage', [IncentiveController::class, 'indexInc'])->name('incentive.create');
-        Route::get('/incentive/apply', [IncentiveController::class, 'indexInc'])->name('incentive.apply');
-        Route::post('/incentive/insert', [IncentiveController::class, 'insert'])->name('incentive.insert');
-        Route::post('/incentive/update', [IncentiveController::class, 'view2'])->name('incentive.update');
+        Route::get('/incentive/manage', [IncentiveController::class, 'userManage'])->name('incentive.manage');
+        Route::get('/incentive/create', [IncentiveController::class, 'create'])->name('incentive.create');
+        Route::put('/incentive/store', [IncentiveController::class, 'store'])->name('incentive.store');
+        Route::get('template/{fileName}', [IncentiveController::class, 'displayFile'])->name('file.display');
+        Route::get('/incentive/{id}/show', [IncentiveController::class, 'userShow'])->name('incentive.show');
+        //Route::get('/incentive/apply', [IncentiveController::class, 'indexInc'])->name('incentive.apply');
+        //Route::post('/incentive/insert', [IncentiveController::class, 'insert'])->name('incentive.insert');
+        //Route::post('/incentive/update', [IncentiveController::class, 'view2'])->name('incentive.update');
         Route::get('/register/spouseList', [SpouseController::class, 'spouseList'])->name('register.spouseList');
         Route::get('/register/create', [ApplicationController::class, 'create'])->name('register.create');
         Route::get('/register/manageUser', [ApplicationController::class, 'manageUser'])->name('register.manageUser');
@@ -108,9 +115,6 @@ Route::prefix('user')->name('user.')->group(function () {
         Route::get('/card/create', [MarriageCardController::class, 'create'])->name('card.create');
         Route::get('/card/uploadPayment', [MarriageCardController::class, 'payment'])->name('card.uploadPayment');
         Route::put('/register/uploadPayment', [ApplicationController::class, 'payment'])->name('register.uploadPayment');
-
-
-
     });
 });
 

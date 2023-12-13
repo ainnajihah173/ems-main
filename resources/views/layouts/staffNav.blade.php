@@ -81,7 +81,7 @@
                 <i class="fas fa-fw fa-cloud"></i>
                 <span>Marriage Card</span>
 
-            <a class="nav-link" href="{{route('staff.incentive.view')}}">
+            <a class="nav-link" href="{{route('staff.incentive.manage')}}">
                 <i class="fas fa-fw fa-credit-card"></i>
                 <span>{{ __('Incentive') }}</span></a>
         </li>

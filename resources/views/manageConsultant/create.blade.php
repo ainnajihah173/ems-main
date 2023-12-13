@@ -54,15 +54,7 @@
                                             placeholder="Name">
                                     </div>
                                 </div>
-                                <div class="col-lg-6">
-                                    <div class="form-group focused">
-                                        <label class="form-control-label" for="phoneNo">Phone Number</label>
-                                        <input type="text" id="phoneNo" class="form-control" name="phoneNo"
-                                            placeholder="phoneNo">
-                                        {{-- <input type="text" id="department" class="form-control" name="department" placeholder="department" value="{{ old('department', Auth::user()->department) }}"> --}}
-                                    </div>
-                                </div>
-                            </div>
+ 
 
                             <div class="row">
                                 <div class="col-lg-12">

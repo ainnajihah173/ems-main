@@ -9,14 +9,54 @@ class Incentive extends Model
 {
     use HasFactory;
     protected $fillable = [
+        
         'id',
-        'applicant_name',
-        'job',
-        'job_type',
-        'salary',
         'date',
-        'status',
-        'heir',
+        'ref_slot_id',
+        'description',
+        'document',
+        'ref_location_id',
+        'managed_by',
+        'sp_id',
+        'app_id',
+        'cons_id',
+        'ref_status_id',
         'docs'
     ];
+    public function managed_by()
+    {
+        return $this->belongsTo(User::class, 'managed_by');
+    }
+
+    public function spouse()
+    {
+        return $this->belongsTo(Spouse::class, 'sp_id');
+    }
+    
+    public function applicant()
+    {
+        return $this->belongsTo(Applicant::class, 'app_id');
+    }
+
+    public function consultant()
+    {
+        return $this->belongsTo(Consultant::class, 'cons_id');
+    }
+
+    public function location()
+    {
+        return $this->belongsTo(Reference::class, 'ref_location_id');
+    }
+
+    public function slot()
+    {
+        return $this->belongsTo(Reference::class, 'ref_slot_id');
+    }
+    
+    public function status()
+    {
+        return $this->belongsTo(Reference::class, 'ref_status_id');
+    }
+    
 }
+

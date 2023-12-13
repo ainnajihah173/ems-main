@@ -107,7 +107,7 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href="{{route('user.incentive.apply')}}">
+            <a class="nav-link" href="{{route('user.incentive.manage')}}">
                 <i class="fas fa-fw  fa-credit-card-alt"></i>
                 <span>{{ __('Incentives') }}</span>
             </a>
