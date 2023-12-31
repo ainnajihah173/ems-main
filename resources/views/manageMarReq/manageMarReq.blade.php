@@ -9,7 +9,7 @@
                     <div class="row">
                         <h6 class="m-0 font-weight-bold text-primary">Manage Marriage Request</h6>
                         <div class="col text-right">
-                            <button type="button" class="btn btn-primary" onclick="window.location.href='{{route('user.application.create')}}'">Add New</button>
+                            <button type="button" class="btn btn-primary" onclick="window.location.href='{{route('user.application.createMarReq')}}'">Add New</button>
                         </div>
                     </div>
                 </div>

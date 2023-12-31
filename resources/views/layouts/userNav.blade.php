@@ -63,7 +63,7 @@
         </li> --}}
 
         <li class="nav-item">
-            <a class="nav-link" href="user.application.manageMarReq">
+            <a class="nav-link" href="{{route('user.application.manageMarReq')}}">
                 <i class="fas fa-fw fa-cloud"></i>
                 <span>{{ __('Marriage Application') }}</span>
             </a>
