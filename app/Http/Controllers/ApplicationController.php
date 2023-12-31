@@ -95,8 +95,8 @@ class ApplicationController extends Controller
 
     public function createMarReq()
     {
-        $datas = Application::paginate(3);
-        return view('manageMarReq.manageMarReq', compact('datas'));
+        $datas = auth()->user();
+        return view('manageMarReq.createMarReq', compact('datas'));
     }
 
     public function storeMarReq(Request $request)
