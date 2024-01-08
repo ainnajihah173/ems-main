@@ -129,7 +129,7 @@
                                     </div>
                                 </div>
                             </div>
-                            {{-- end application details --}}
+                            {{-- end application detail --}}
                             <br>
                             {{-- start spouse details --}}
                             <label for="example-color-input" class="form-control-label mb-3">Spouse's Detail</label>
@@ -217,76 +217,7 @@
                                 </div>
                             </div>
                             {{-- end spouse details --}}
-                            <br>
-                            {{-- start marriage details --}}
-                            <label for="example-color-input" class="form-control-label mb-3">Marriage's Detail</label>
-                            <div class="pl-lg-4">
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="form-group focused">
-                                            <label class="form-control-label" for="date">Consultation
-                                                Date<span class="small text-danger">*</span></label>
-                                            <input type="date" id="date" class="form-control" name="date"
-                                                placeholder="date" value="{{ $data['date'] }}" disabled>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="form-group focused">
-                                            <label class="form-control-label" for="slot">slot</label>
-                                            <input type="text" id="slot" class="form-control" name="slot"
-                                                placeholder="slot" value="{{ $data['slot']['value'] }}" disabled>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label class="form-control-label" for="document">Document<span
-                                                    class="small text-danger">*</span></label>
-                                            <input type="text" id="document" class="form-control" name="document"
-                                                placeholder="document" value="{{ $data['document'] }}" disabled>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label class="form-control-label" for="location">Location<span
-                                                    class="small text-danger">*</span></label>
-                                            <input type="text" id="location" class="form-control" name="location"
-                                                placeholder="Location" value="{{ $data['location']['value'] }}" disabled>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <label class="form-control-label" for="description">Description<span
-                                                class="small text-danger">*</span></label>
-                                        <textarea id="description" class="form-control" name="description" placeholder="{{ $data['description'] }}"
-                                            disabled>
-                                        {{ $data['description'] }}
-                                    </textarea>
-
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="form-group focused">
-                                            <label class="form-control-label" for="cons_id">Location</label>
-                                            <select class="form-control" name="cons_id" required>
-                                                <option value="" disabled selected>Select a consultant
-                                                </option>
-                                                @foreach ($consultants as $consultant)
-                                                    <option value="{{ $consultant->id }}">
-                                                        {{ $consultant->name }}
-                                                    </option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                            {{-- end marriage details --}}
+                            
 
                         </div>
                         <!-- Button -->
