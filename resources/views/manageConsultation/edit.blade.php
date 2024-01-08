@@ -286,7 +286,7 @@
                                 </div>
 
                             </div>
-                            {{-- end marriage detail --}}
+                            {{-- end marriage details --}}
 
                         </div>
                         <!-- Button -->
