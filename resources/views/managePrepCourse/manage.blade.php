@@ -48,9 +48,15 @@
                 </thead>
                
             </table>
+            <!--<div class="px-3 pt-4">
+                {{ $locations->links() }}
+            </div>-->
+                    @if ($locations->hasPages())
             <div class="px-3 pt-4">
                 {{ $locations->links() }}
             </div>
+        @endif
+
 
         </div>
 
