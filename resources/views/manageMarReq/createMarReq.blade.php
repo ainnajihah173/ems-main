@@ -35,7 +35,7 @@
 
                 {{-- <div class="card-body"> --}}
 
-                <form method="POST" action="" autocomplete="off">
+                <form method="POST" action="{{ route('user.application.storeMarReq')}}" autocomplete="off">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                     <input type="hidden" name="_method" value="PUT">
@@ -261,17 +261,18 @@
 
 
                                 </div>
+                                <div class="pl-lg-4">
+                                    <div class="row">
+                                        <div class="col text-center">
+                                            <button type="submit" class="btn btn-primary">Save</button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <br><br>
-                    <div class="pl-lg-4">
-                        <div class="row">
-                            <div class="col text-center">
-                                <button type="submit" class="btn btn-primary">Save</button>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </form>
 
 

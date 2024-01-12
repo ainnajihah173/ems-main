@@ -79,7 +79,7 @@
                                             <div class="form-group focused">
                                                 <label class="form-control-label" for="birthdate">Date of Birth</label>
                                                 <input type="date" id="birthdate" class="form-control"
-                                                    name="applicant_birthdate" placeholder="date of birth">
+                                                    name="applicant_birthdate" placeholder="date of birth" value="{{ $applicant->birthdata ?? '' }}">
                                             </div>
                                         </div>
                                     </div>
@@ -128,7 +128,7 @@
                                                 <label class="form-control-label"
                                                     for="applicant_nationality">Nationality</label>
                                                 <input type="text" id="applicant_nationality" class="form-control"
-                                                    name="applicant_nationality" placeholder="Nationality">
+                                                    name="applicant_nationality" placeholder="Nationality" value="{{ $applicant->nationality }}">
                                             </div>
                                         </div>
                                     </div>
@@ -143,7 +143,7 @@
                                                 <label class="form-control-label" for="spouse_name">Name<span
                                                         class="small text-danger">*</span></label>
                                                 <input type="text" id="spouse_name" class="form-control"
-                                                    name="spouse_name" placeholder="Name">
+                                                    name="spouse_name" placeholder="Name" value="{{ $application->first()->spouse->name ?? '' }}">
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
@@ -151,7 +151,7 @@
                                                 <label class="form-control-label" for="spouse_birthdate">Date of
                                                     Birth</label>
                                                 <input type="date" id="spouse_birhtdate" class="form-control"
-                                                    name="spouse_birthdate" placeholder="date of birth">
+                                                    name="spouse_birthdate" placeholder="date of birth" value="{{ $application->first()->spouse->birthdate ?? '' }}">
                                             </div>
                                         </div>
                                     </div>
@@ -162,7 +162,7 @@
                                                 <label class="form-control-label" for="spouse_email">Email address<span
                                                         class="small text-danger">*</span></label>
                                                 <input type="email" id="spouse_email" class="form-control"
-                                                    name="spouse_email" placeholder="example@example.com">
+                                                    name="spouse_email" placeholder="example@example.com" value="{{ $application->first()->spouse->email ?? '' }}">
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
@@ -170,7 +170,7 @@
                                                 <label class="form-control-label" for="spouse_IcNum">IC Number<span
                                                         class="small text-danger">*</span></label>
                                                 <input type="text" id="spouse_IcNum" class="form-control"
-                                                    name="spouse_IcNum" placeholder="IC Number">
+                                                    name="spouse_IcNum" placeholder="IC Number" value="{{ $application->first()->spouse->ic ?? '' }}">
                                             </div>
                                         </div>
                                     </div>
@@ -180,7 +180,7 @@
                                             <div class="form-group focused">
                                                 <label class="form-control-label" for="spouse_gender">Gender</label>
                                                 <input type="text" id="spouse_gender" class="form-control"
-                                                    name="spouse_gender" placeholder="gender">
+                                                    name="spouse_gender" placeholder="gender" value="{{ $application->first()->spouse->gender ?? '' }}">
                                             </div>
                                         </div>
                                         <div class="col-lg-4">
@@ -188,7 +188,7 @@
                                                 <label class="form-control-label" for="spouse_phoneNo">Phone
                                                     Number</label>
                                                 <input type="text" id="spouse_phoneNo" class="form-control"
-                                                    name="spouse_phoneNo" placeholder="phone number">
+                                                    name="spouse_phoneNo" placeholder="phone number" value="{{ $application->first()->spouse->phonenumber ?? '' }}">
                                             </div>
                                         </div>
                                         <div class="col-lg-4">
@@ -196,7 +196,7 @@
                                                 <label class="form-control-label"
                                                     for="spouse_nationality">Nationality</label>
                                                 <input type="text" id="spouse_nationality" class="form-control"
-                                                    name="spouse_nationality" placeholder="Nationality">
+                                                    name="spouse_nationality" placeholder="Nationality" value="{{ $application->first()->spouse->nationality ?? '' }}">
                                             </div>
                                         </div>
                                     </div>
@@ -210,28 +210,28 @@
                                                 <label class="form-control-label" for="wali_name">Wali Name<span
                                                         class="small text-danger">*</span></label>
                                                 <input type="text" id="wali_name" class="form-control"
-                                                    name="wali_name" placeholder="Name">
+                                                    name="wali_name" placeholder="Name" value="{{ $application->first()->wali->name ?? '' }}">
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="form-group focused">
                                                 <label class="form-control-label" for="wali_number">Wali HP Number</label>
                                                 <input type="text" id="wali_number" class="form-control"
-                                                    name="wali_number" placeholder="HP Number">
+                                                    name="wali_number" placeholder="HP Number" value="{{ $application->first()->wali->phonenumber ?? '' }}">
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="form-group focused">
                                                 <label class="form-control-label" for="wali_address">Wali Address</label>
                                                 <input type="text" id="wali_address" class="form-control"
-                                                    name="wali_address" placeholder="Address">
+                                                    name="wali_address" placeholder="Address" value="{{ $application->first()->wali->address ?? '' }}">
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="form-group focused">
                                                 <label class="form-control-label" for="wali_relationship">Wali Relationship</label>
                                                 <input type="text" id="wali_relationship" class="form-control"
-                                                    name="wali_relationship" placeholder="Relationship">
+                                                    name="wali_relationship" placeholder="Relationship" value="{{ $application->first()->wali->relationship ?? '' }}">
                                             </div>
                                         </div>
                                     </div>
@@ -241,14 +241,14 @@
                                                 <label class="form-control-label" for="witness_name">Witness Name<span
                                                         class="small text-danger">*</span></label>
                                                 <input type="text" id="witness_name" class="form-control"
-                                                    name="witness_name" placeholder="Name">
+                                                    name="witness_name" placeholder="Name" value="{{ $application->first()->witness->name ?? '' }}">
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="form-group focused">
                                                 <label class="form-control-label" for="witness_number">Witness HP Number</label>
                                                 <input type="text" id="witness_number" class="form-control"
-                                                    name="witness_number" placeholder="HP Number">
+                                                    name="witness_number" placeholder="HP Number" value="{{ $application->first()->witness->phonenumber ?? '' }}">
                                             </div>
                                         </div>
                                         

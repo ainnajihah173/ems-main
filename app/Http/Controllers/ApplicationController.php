@@ -13,37 +13,44 @@ use App\Models\User;
 
 class ApplicationController extends Controller
 {
-    public function create(){
+    public function create()
+    {
         $user = auth()->user();
-        return view('manageRegister.create', compact('user'));
+        $applicant = Applicant::where('user_id', $user->id)->first();
+        $application = Application::with('spouse', 'wali', 'witness')->where('applicant_id', $applicant->id)->paginate(10);
+
+        return view('manageRegister.create', compact('user', 'applicant', 'application'));
+
     }
-    public function manageUser(){
+    public function manageUser()
+    {
         $user_id = auth()->user()->id;
-        $id = Applicant::where('user_id',$user_id)->first()->id;
-        $datas = Application::with('applicant','spouse','wali','witness')->where('applicant_id',$id)->paginate(10);
+        $id = Applicant::where('user_id', $user_id)->first()->id;
+        $datas = Application::with('applicant', 'spouse', 'wali', 'witness')->where('applicant_id', $id)->paginate(10);
         return view('manageRegister.manageUser', compact('datas'));
     }
-    public function payment(Request $request){
+    public function payment(Request $request)
+    {
         $user = ([
             'name' => $request->applicant_name,
-            'email' =>  $request->applicant_email,
+            'email' => $request->applicant_email,
             'contact' => $request->applicant_phoneNo,
         ]);
         User::where('id', Auth()->user()->id)->update($user);
-        
+
         $applicant = Applicant::where('user_id', Auth()->user()->id)->first();
         $applicant->birthdate = $request->applicant_birthdate;
         $applicant->nationality = $request->applicant_nationality;
         $applicant->save();
         $existingSpouse = Spouse::where('ic', $request->spouse_IcNum)->first();
-        
+
         if ($existingSpouse) {
             $spouse = $existingSpouse;
         } else {
             $spouse = new Spouse();
             $spouse->ic = $request->spouse_IcNum;
         }
-        
+
         $spouse->name = $request->spouse_name;
         $spouse->birthdate = $request->spouse_birthdate;
         $spouse->email = $request->spouse_email;
@@ -51,14 +58,14 @@ class ApplicationController extends Controller
         $spouse->phonenumber = $request->spouse_phoneNo;
         $spouse->nationality = $request->spouse_nationality;
         $spouse->save();
-        
+
         $wali = new Wali();
         $wali->name = "wali_name";
         $wali->phonenumber = "wali_number";
         $wali->address = "wali_address";
         $wali->relationship = "wali_relationship";
         $wali->save();
-        
+
         $witness = new Witness();
         $witness->name = "witness_name";
         $witness->phonenumber = "witness_number";
@@ -73,7 +80,7 @@ class ApplicationController extends Controller
 
         Application::create($application);
         return view('manageCard.uploadPayment');
-        
+
         // return redirect()->route('user.consultation.manage')
         //     ->with('success', "consultation Successfully Posted!");
     }
@@ -101,28 +108,58 @@ class ApplicationController extends Controller
 
     public function storeMarReq(Request $request)
     {
-        $applicant = ([
-            'user_id' => Auth()->user()->id,
+        $user = ([
+            'name' => $request->applicant_name,
+            'email' => $request->applicant_email,
+            'contact' => $request->applicant_phoneNo,
         ]);
+        
+        User::where('id', Auth()->user()->id)->update($user);
 
-        $app = new Applicant();
-        $app->fill($applicant);
-        $app->save();
-        // Applicant::create($applicant);
-        $spouse = ([
-            'id' => $request->id,
-        ]);
-        $sp = new Spouse();
-        $sp->fill($spouse);
-        $sp->save();
+        $applicant = Applicant::where('user_id', Auth()->user()->id)->first();
+        $applicant->birthdate = $request->applicant_birthdate;
+        $applicant->nationality = $request->applicant_nationality;
+        $applicant->save();
+        $existingSpouse = Spouse::where('ic', $request->spouse_IcNum)->first();
+
+        if ($existingSpouse) {
+            $spouse = $existingSpouse;
+        } else {
+            $spouse = new Spouse();
+            $spouse->ic = $request->spouse_IcNum;
+        }
+
+        $spouse->name = $request->spouse_name;
+        $spouse->birthdate = $request->spouse_birthdate;
+        $spouse->email = $request->spouse_email;
+        $spouse->gender = $request->spouse_gender;
+        $spouse->phonenumber = $request->spouse_phoneNo;
+        $spouse->nationality = $request->spouse_nationality;
+        $spouse->save();
+
+        $wali = new Wali();
+        $wali->name = "wali_name";
+        $wali->phonenumber = "wali_number";
+        $wali->address = "wali_address";
+        $wali->relationship = "wali_relationship";
+        $wali->save();
+
+        $witness = new Witness();
+        $witness->name = "witness_name";
+        $witness->phonenumber = "witness_number";
+        $witness->save();
 
         $application = ([
-            'sp_id' => $sp->id
+            'wali_id' => $wali->id,
+            'witness_id' => $witness->id,
+            'spouse_id' => $spouse->id,
+            'applicant_id' => $applicant->id,
         ]);
+
         Application::create($application);
 
         return redirect()->route('user.application.manageMarReq')
-            ->with('success', "Successfully Posted!");
+            ->with('success', "Successfully Data Inserted!");
     }
 
 }
