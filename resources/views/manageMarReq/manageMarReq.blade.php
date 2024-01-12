@@ -48,15 +48,24 @@
                                 </td>
                                 <td>
                                     <p class="text-sm font-weight-bold mb-0">
-                                       {{$data->applicant->user_id->id}} data</p>
+                                       {{$data->applicant->user->name}}</p>
                                 </td>
                                 <td>
                                     <p class="text-sm font-weight-bold mb-0">
-                                       {{$data->id}} Spouse</p>
+                                       {{$data->spouse->name}}</p>
                                 </td>
                                 <td>
                                     <p class="text-sm font-weight-bold mb-0">
-                                       {{$data->created_at->format('Y-m-d')}} wedding date</p>
+                                       {{$data->created_at->format('Y-m-d')}}</p>
+                                </td>
+                                <td class="align-middle text-end">
+                                    <div class="d-flex px-3 py-1 justify-content-center align-items-center">
+                                        <a class="text-info me-3" href=""><i class="fas fa-eye fa-lg" aria-hidden="true"></i></a>
+                                        <a class="text-success me-3"><i class="fa fa-pencil-square-o fa-lg"
+                                                aria-hidden="true"></i></a>
+                                        <a class="text-danger" href="#"><i class="fa fa-trash-o fa-lg"
+                                                aria-hidden="true"></i></a>
+                                    </div>
                                 </td>
                                 {{-- <td class="align-middle text-end">
                                     <div class="d-flex px-3 py-1 justify-content-center align-items-center">

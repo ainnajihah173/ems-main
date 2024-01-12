@@ -48,9 +48,6 @@
                                 <p class="text-sm font-weight-bold mb-0">
                                    {{$data->created_at->format('Y-m-d')}}</p>
                             </td>
-                            <td>
-                                <p class="text-sm font-weight-bold mb-0">
-                                    Status</p>
                             </td>
                             <td class="align-middle text-end">
                                 <div class="d-flex px-3 py-1 justify-content-center align-items-center">

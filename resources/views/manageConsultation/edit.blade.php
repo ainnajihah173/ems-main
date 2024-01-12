@@ -129,7 +129,7 @@
                                     </div>
                                 </div>
                             </div>
-                            {{-- end application details --}}
+                            {{-- end application detail --}}
                             <br>
                             {{-- start spouse details --}}
                             <label for="example-color-input" class="form-control-label mb-3">Spouse's Detail</label>
@@ -286,7 +286,7 @@
                                 </div>
 
                             </div>
-                            {{-- end marriage detail --}}
+                            {{-- end marriage details --}}
 
                         </div>
                         <!-- Button -->
